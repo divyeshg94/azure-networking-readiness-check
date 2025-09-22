@@ -31,3 +31,17 @@ This script inventories your VMs, detects risks, and exports a **CSV/Excel** rep
 - **Az modules**: `Az.Accounts`, `Az.Resources`, `Az.Network`, `Az.Compute`  
   ```powershell
   Install-Module Az -Scope CurrentUser
+
+
+  # 1) Sign in
+Connect-AzAccount
+
+# 2) Run against all enabled subscriptions (CSV)
+.\AzureInfrastructureAssessment.ps1
+
+# 3) Run against specific subscriptions and export to Excel
+$subs = @('00000000-0000-0000-0000-000000000000','11111111-1111-1111-1111-111111111111')
+.\AzureInfrastructureAssessment.ps1 -SubscriptionIds $subs -ExportToExcel
+
+# 4) More details in the CSV (one row per VM with nested JSON-like columns)
+.\AzureInfrastructureAssessment.ps1 -DetailedReport
