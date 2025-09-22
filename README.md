@@ -32,8 +32,9 @@ This script inventories your VMs, detects risks, and exports a **CSV/Excel** rep
   ```powershell
   Install-Module Az -Scope CurrentUser
 
+---
 
-  # 1) Sign in
+# 1) Sign in
 Connect-AzAccount
 
 # 2) Run against all enabled subscriptions (CSV)
