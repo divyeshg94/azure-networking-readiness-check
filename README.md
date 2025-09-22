@@ -46,3 +46,20 @@ $subs = @('00000000-0000-0000-0000-000000000000','11111111-1111-1111-1111-111111
 
 # 4) More details in the CSV (one row per VM with nested JSON-like columns)
 .\AzureInfrastructureAssessment.ps1 -DetailedReport
+
+---
+
+🧠 What the scanner checks (per VM)
+
+1) Presence of explicit outbound egress
+- NAT Gateway attached to subnet
+- Load Balancer backend association
+- UDR 0.0.0.0/0 → VirtualAppliance (NVA)
+- Public IP (and whether it’s Basic or Standard)
+2) Flags HasDefaultOutboundAccess if no explicit method found
+3) Summarizes SecurityConcerns and RecommendedActions
+4) Sets ComplianceStatus = COMPLIANT / NON-COMPLIANT
+
+
+---
+
